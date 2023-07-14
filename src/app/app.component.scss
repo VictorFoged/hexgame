@@ -1,0 +1,43 @@
+.main {
+    width: 950px;
+    display:flex;
+    --s: 50px;  /* size  */
+    --m: 1px;    /* margin */
+    --f: calc(1.732 * var(--s) + 4 * var(--m)  - 1px);
+  }
+
+  .container {
+    flex-wrap: nowrap;
+  }
+  
+  .hex {
+    font-size: 0; /*disable white space between inline block element */
+  }
+  
+  .hex {
+    width: var(--s);
+    margin: var(--m);
+    height: calc(var(--s)*1.1547); 
+    display: inline-block;
+    font-size: initial;
+    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+    // background: red;
+    margin-bottom: calc(var(--m) - var(--s)*0.3585); 
+  }
+  .container::before {
+    content: "";
+    width: calc(var(--s)/2 + var(--m));
+    float: left;
+    height: 120%;
+    shape-outside: repeating-linear-gradient(     
+                      #0000 0 calc(var(--f) - 3px),      
+                      #000  0 var(--f));
+  }
+
+  .hex:hover{
+    background: greenyellow !important;
+    box-shadow: 0 0 110px rgba(255,33,33,1) !important; 
+  
+    // border: greenyellow solid 4px;
+  }
+  
